@@ -24,11 +24,13 @@ def first_plus_length (list):
 # print(result)
 
 def greater_values (list):
+    if len(list) < 2:
+        return False
     newList = []
     for x in list:
         if x > list[1]:
             newList.append(x)
-    
+    print(len(newList))
     return newList
 
 # test greater_values
@@ -39,7 +41,6 @@ def list_size_val (size, value):
     newList = []
     for x in range(size):
         newList.append(value)
-    
     return newList
 
 #test list_size_val
