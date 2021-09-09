@@ -1,0 +1,25 @@
+* {
+    padding:0;
+    margin:0;
+    font-family:sans-serif;
+}
+body {
+    margin:auto;
+    width:fit-content;
+
+}
+table {
+    width:600px;
+    border-collapse:collapse;
+    border-spacing:0;
+    text-align:center;
+}
+tr {
+    line-height: 40px;
+    border-bottom:1px solid #CCCCCC;
+}
+thead {
+    background-color:#222222;
+    color:goldenrod;
+    font-weight:bolder;
+}
