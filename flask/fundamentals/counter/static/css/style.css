@@ -1,0 +1,23 @@
+* {
+    margin:0;
+    padding:5px;
+    font-family:sans-serif;
+    margin:auto;
+    text-align:center;
+}
+
+#buttons {
+    display:flex;
+    width: 300px;
+    justify-content: space-between;
+}
+input[name='click'] {
+    background-color:royalblue;
+    color:goldenrod;
+    padding:10px;
+}
+input[name='reset'] {
+    background-color:red;
+    color:royalblue;
+    padding:10px;
+}
