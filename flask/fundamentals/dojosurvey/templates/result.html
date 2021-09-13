@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{url_for('static', filename='/css/style.css')}}" rel="stylesheet">
+    <title>Dojo Survey</title>
+</head>
+<body>
+  <div class='container'>
+        <h3 id='submitted'>Submitted Info</h3>
+        <form action='/goback' method='get'>
+            <div id='responses'>
+                <div id='labels'>
+                    <ul>
+                        <li>Name:</li>
+                        <li>Dojo Location:</li>
+                        <li>Favorite Language:</li>
+                        <li>Comment:</li>
+                    </ul>
+                </div>
+                <div id='values'>
+                    <ul>
+                        <li>{{session['name']}}</li>
+                        <li>{{session['location']}}</li>
+                        <li>{{session['language']}}</li>
+                        <li>{{session['comment']}}</li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="form-group-right">
+                <input type="submit" class="button" value="Go Back">
+            </div>
+        </form>
+  </div>  
+</body>
+</html>
