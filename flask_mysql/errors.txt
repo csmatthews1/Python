@@ -1,0 +1,7 @@
+pymysql.err.OperationalError: (1045, "Access denied for user 'root'@'localhost' (using password: YES)") - Incorrect Password
+
+TypeError
+TypeError: 'bool' object is not iterable - Table name is incorrect so friends objects are not created
+
+pymysql.err.OperationalError: (1049, "Unknown database 'first_fask'") - Incorrect schema name
+
