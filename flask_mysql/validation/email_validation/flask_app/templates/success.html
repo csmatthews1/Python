@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{url_for('static', filename='/css/style.css')}}" rel="stylesheet">
+    <title>Success Page</title>
+</head>
+<body>
+    <div class='container'>
+        <p class='success'>The email address ({{new_email}}) is VALID and was added to the database.</p>
+        <h4>Email Addresses Entered:</h4>
+        <table>
+        {% for email in emails%}
+            <tr>
+                <td>{{email.email}}</td>
+                <td>{{email.created_at}}</td>
+            </tr>
+        {% endfor%}
+        </table>
+        <form action='/'>
+            <div class="form-group-right">
+                <input type="submit" class="button" value="Go Back">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
