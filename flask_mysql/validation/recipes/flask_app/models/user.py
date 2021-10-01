@@ -20,7 +20,7 @@ class User:
     def get_all(cls):
         query = "SELECT * FROM users;"
         # make sure to call the connectToMySQL function with the schema you are targeting.
-        results = connectToMySQL('user_logins').query_db(query)
+        results = connectToMySQL('recipes').query_db(query)
         # Create an empty list to append our instances of friends
         users = []
         # Iterate over the db results and create instances of friends with cls.
@@ -32,7 +32,16 @@ class User:
     def get_by_email(cls, data):
         query = "SELECT * FROM users WHERE email = %(email)s;"
         # make sure to call the connectToMySQL function with the schema you are targeting.
-        result = connectToMySQL('user_logins').query_db(query, data)
+        result = connectToMySQL('recipes').query_db(query, data)
+        if len(result) < 1:
+            return False
+        return cls(result[0])
+
+    @classmethod
+    def get_by_id(cls, data):
+        query = "SELECT * FROM users WHERE id = %(id)s;"
+        # make sure to call the connectToMySQL function with the schema you are targeting.
+        result = connectToMySQL('recipes').query_db(query, data)
         if len(result) < 1:
             return False
         return cls(result[0])
@@ -41,7 +50,7 @@ class User:
     def save(cls, data):
         query = "INSERT INTO users ( first_name, last_name, email, password, created_at, updated_at) VALUES ( %(first_name)s, %(last_name)s, %(email)s, %(password)s, NOW(), NOW());"
         # data is a dictionary that will be passed into the save method from server.py
-        return connectToMySQL('user_logins').query_db( query, data )
+        return connectToMySQL('recipes').query_db( query, data )
 
     @staticmethod
     def validate_user(user):
@@ -60,7 +69,7 @@ class User:
             is_valid = False       
         if not user['password'] == user['confirm']:
             flash("Passwords do not match!", "register")
-            is_valid = False
+            is_valid = False    
         users = User.get_all()
         for u in users:
             if user['email'] == u.email:
@@ -73,5 +82,5 @@ class User:
         is_valid = True;
         if not EMAIL_REGEX.match(user['email']): 
             flash("Email is not valid!", "login")
-            is_valid = False   
+            is_valid = False 
         return is_valid
